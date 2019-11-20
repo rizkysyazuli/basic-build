@@ -2,6 +2,9 @@ FROM thecodingmachine/php:7.2-v2-cli-node10
 
 USER root
 
+# Install rsync
+RUN apt install rsync -y
+
 # Install git-ftp
 RUN cd /tmp && git clone https://github.com/git-ftp/git-ftp.git && cd git-ftp \
     && tag="$(git tag | grep '^[0-9]*\.[0-9]*\.[0-9]*$' | tail -1)" \
