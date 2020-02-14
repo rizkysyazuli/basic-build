@@ -1,4 +1,4 @@
-FROM thecodingmachine/php:7.2-v2-cli-node10
+FROM thecodingmachine/php:7.4-v3-cli-node10
 
 USER root
 
