@@ -11,6 +11,9 @@ RUN cd /tmp && git clone https://github.com/git-ftp/git-ftp.git && cd git-ftp \
     && git checkout "$tag" \
     && mv git-ftp /usr/local/bin && chmod +x /usr/local/bin
 
+# Create docker-owned NPM cache directory
+RUN mkdir /home/docker/.npm; chown docker:docker /home/docker/.npm
+
 USER docker
 
 CMD ["bash"]
