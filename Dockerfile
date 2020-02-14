@@ -12,3 +12,5 @@ RUN cd /tmp && git clone https://github.com/git-ftp/git-ftp.git && cd git-ftp \
     && mv git-ftp /usr/local/bin && chmod +x /usr/local/bin
 
 USER docker
+
+CMD ["bash"]
