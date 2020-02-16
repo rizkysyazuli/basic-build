@@ -5,14 +5,11 @@ USER root
 # Install rsync
 RUN apt install rsync -y
 
-# Install git-ftp manually
-RUN cd /tmp && git clone https://github.com/git-ftp/git-ftp.git && cd git-ftp \
-    && tag="$(git tag | grep '^[0-9]*\.[0-9]*\.[0-9]*$' | tail -1)" \
-    && git checkout "$tag" \
-    && mv git-ftp /usr/local/bin && chmod +x /usr/local/bin
-
-# Create docker-owned NPM cache directory
-RUN mkdir /home/docker/.npm; chown docker:docker /home/docker/.npm
+# Create docker-owned NPM & Composer cache directory
+ENV COMPOSER_HOME=/composer
+ENV npm_config_cache=/npm
+RUN mkdir /npm; chown docker:docker /npm
+RUN mkdir /composer; chown docker:docker /composer
 
 USER docker
 
