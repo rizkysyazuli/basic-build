@@ -1,5 +1,7 @@
 FROM thecodingmachine/php:7.4-v3-cli-node10
 
+LABEL maintainer="Rizky Syazuli <rzky@me.com>"
+
 USER root
 
 # Install rsync
