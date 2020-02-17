@@ -1,12 +1,14 @@
 # Docker image with PHP, Node, and rsync.
 
-## Usage
+## How to use
 
 Run:
 
     $ docker run -it --rm -v $PWD/composer:/composer -v $PWD/npm:/npm rzky/deploy-php-node:latest
 
-Example:
+We mounted the `composer` and `npm` cache directory to speed up build.
+
+Example usage:
 
     git clone <your-app>
     cd <your-app>
@@ -15,7 +17,7 @@ Example:
     npm install
     npm run build
 
-    rsync -uavn --delete ./ $APP_USER@$APP_HOST:$APP_PATH
+    rsync -uavn --delete ./ username@somehost.com:/path/to/app
 
 ## Development
 
