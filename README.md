@@ -17,7 +17,7 @@ Example usage:
     npm install
     npm run build
 
-    rsync -uavn --delete ./ username@somehost.com:/path/to/app
+    rsync -uav --delete ./ username@somehost.com:/path/to/app
 
 ## Development
 
