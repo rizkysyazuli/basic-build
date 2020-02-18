@@ -13,6 +13,10 @@ ENV npm_config_cache=/npm
 RUN mkdir /npm; chown docker:docker /npm
 RUN mkdir /composer; chown docker:docker /composer
 
+# Use Bash shell and update PATHs
+SHELL ["/bin/bash", "-c"]
+RUN echo "export PATH=/composer/vendor/bin:${PATH}" >> /home/docker/.bashrc
+
 USER docker
 
 CMD ["bash"]
